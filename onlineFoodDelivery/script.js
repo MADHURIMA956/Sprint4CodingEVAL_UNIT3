@@ -29,13 +29,13 @@ function showFood(food){
         price.innerText=f.strMeal;
 
         let description = document.createElement("p");
-        description.innerText=f.strIngredientsX;
+        description.innerText=f.strMeasureX;
 
         let cart_btn = document.createElement("button");
         cart_btn.innerText="Add to Cart";
 
         
-        div.append(image,price,description,cart_btn);
+        div.append(image,price,cart_btn);
         parent.append(div)
     })
 }
