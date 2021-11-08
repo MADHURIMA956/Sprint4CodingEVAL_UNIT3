@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <style>
+        #login_form{
+            width:15%;
+        }
+        input{
+            margin-top: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="logIn">
+        <form action="" onsubmit="login(event)" id="login_form">
+            <h1>Log In</h1>
+            <input type="text" id="username" placeholder="UserName"/>
+            <input type="password" id="password" placeholder="Password"/>
+            <input type="submit" value="Log In"/>
+        </form>
+
+    </div>
+</body>
+</html>
+
+<script>
+    
+    function login(e){
+        e.preventDefault();
+
+        let form = document.getElementById("login_form");
+
+        let udata = {
+           
+            password : form.password.value,
+            username : form.username.value,
+    
+        };
+
+        console.log(udata)
+        let log_data = JSON.stringify(udata);
+
+        fetch("https://masai-api-mocker.herokuapp.com/auth/login" , {
+            method : 'POST',
+            body : log_data,
+            headers:{
+                'Content-Type': 'application/json'
+            },
+        })
+        .then((res)=>{
+            return res.json();
+            
+        })
+        .then((res)=>{
+            console.log(res);
+            fetchdata(udata.username,res.token);
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
+
+    function fetchdata(username,token){
+        fetch(`https://masai-api-mocker.herokuapp.com/user/${username}`,{
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
+        })
+        .then((res)=>{
+            return res.json();     
+        })
+        .then((res)=>{
+            console.log(res);
+            alert(`Logged In successfully to your account`);
+            window.location.href="index.html";
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+</script>
