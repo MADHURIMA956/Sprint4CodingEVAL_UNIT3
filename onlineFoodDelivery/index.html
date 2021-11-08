@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Delivery</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #navbar{
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            width:100%;
+            height:70px;
+            position:fixed;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        #navbar img{
+            width: 40px;
+        }
+        #logo{
+            padding: 5px 40px;
+        }
+        #menu{
+            justify-content:space-between;
+            padding: 20px 40px;
+        }
+        #menu > button ,#menu > select {
+            padding: 8px 20px;
+            margin-right: 15px;
+            border-radius:5px;
+            outline:none;
+            border: none;
+            background-color:green;
+            color: white;
+            word-spacing: 5px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo" >
+            <img src="https://seeklogo.com/images/G/good-food-logo-36B7F2C85D-seeklogo.com.png" alt="">
+        </div>
+        <div id="menu">
+            <select name="MENU" id="food">
+                <option value="FOOD">FOOD</option>
+                <option value="VEG">VEG</option>
+                <option value="NON-VEG">NON-VEG</option>
+                <option value="CONTINENTAL">CONTINENTAL</option>
+                <option value="SNACKS">SNACKS</option>
+            </select>
+            <button><a href="login.html">Log In</a></button>
+            <button><a href="signup.html">Sign Up</a></button>
+        </div>
+    </nav>
+</body>
+</html>
