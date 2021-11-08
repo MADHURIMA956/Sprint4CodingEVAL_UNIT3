@@ -2,7 +2,7 @@ let parent = document.getElementById('main_food');
 
 async function getFood(){
     try{
-        let res = await fetch(`www.themealdb.com/api/json/v1/1/random.php`);
+        let res = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
 
         let data = await res.json();
 
